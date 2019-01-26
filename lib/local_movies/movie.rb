@@ -1,13 +1,12 @@
 class LocalMovies::Movie
-  attr_accessor :title, :showtimes, :rating, :length, :description
+  attr_accessor :title, :showtimes, :rating, :length
   @@all = []
 
-  def initialize(title, showtimes, rating, length, description)
+  def initialize(title, rating, length, showtimes)
     @title = title
-    @showtimes = showtimes
     @rating = rating
     @length = length
-    @description = description
+    @showtimes = showtimes
     @@all << self
   end
 
@@ -18,9 +17,8 @@ class LocalMovies::Movie
   def self.list
     @@all.each do |movie|
       puts "#{movie.title.upcase}"
-      puts "  description:" + " #{movie.description}"
-      puts "  length:" + " #{movie.length}"
       puts "  rating:" + " #{movie.rating}"
+      puts "  length:" + " #{movie.length}"
       puts "  showtimes:" + " #{movie.showtimes}"
     end
   end
