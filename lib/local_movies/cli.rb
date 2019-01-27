@@ -11,10 +11,15 @@ class LocalMovies::CLI
     url = "https://www.imdb.com/showtimes/US/#{input1}/#{date[2]}-#{date[0]}-#{date[1]}?ref_=sh_dt"
     theater = LocalMovies::Scraper.new.scrape_theaters(url)
     puts "Your nearby theater is #{theater.name} and it is located at #{theater.address}."
-    movies = theater.scrape_movies
+    movies = LocalMovies::Scraper.new.scrape_movies(url)
     puts "Here are the movies playing at #{theater.name}:"
     movies.list
-    
+    #should output: 
+      # puts "#{movie.title.upcase}"
+      # puts "  rating:" + " #{movie.rating}"
+      # puts "  length:" + " #{movie.length}"
+      # puts "  showtimes:" + " #{movie.showtimes}"
+      # for each movie showing at the theater
     
     
     
