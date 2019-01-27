@@ -19,7 +19,7 @@ class LocalMovies::Movie
       puts "#{movie.title.upcase}"
       puts "  Rating:" + " #{movie.rating}"
       puts "  Length:" + " #{movie.length}"
-      puts "  Showtimes:" + " #{movie.showtimes}"
+      puts "  Showtimes:" + " #{movie.showtimes}".gsub("GetTickets", "")
     end
   end
 
