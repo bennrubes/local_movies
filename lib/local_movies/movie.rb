@@ -17,9 +17,9 @@ class LocalMovies::Movie
   def self.list
     @@all.each do |movie|
       puts "#{movie.title.upcase}"
-      puts "  rating:" + " #{movie.rating}"
-      puts "  length:" + " #{movie.length}"
-      puts "  showtimes:" + " #{movie.showtimes}"
+      puts "  Rating:" + " #{movie.rating}"
+      puts "  Length:" + " #{movie.length}"
+      puts "  Showtimes:" + " #{movie.showtimes}"
     end
   end
 
