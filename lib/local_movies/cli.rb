@@ -35,39 +35,14 @@ class LocalMovies::CLI
         menu
     end
     url = "https://www.imdb.com/showtimes/US/#{input1}/#{date[2]}-#{date[0]}-#{date[1]}?ref_=sh_dt"
-    # begin
-    #   doc = Nokogiri::HTML(open(url)) do
-    #     # handle doc
-    #   end
-    # rescue OpenURI::HTTPError => e
-    #   if e.message == 'There was no information found with the information you provided.'
-    #     # handle 404 error
-    #   else
-    #     raise e
-    #   end
-    # end
-    # not sure if this is needed
-    # may need custom error message to state if there is no movie information to scrap from zipcode and date selected
     @theater = LocalMovies::Scraper.new.scrape_theaters(url)
     puts "Your nearby theater is #{@theater.name} and it is located at #{@theater.address}."
     LocalMovies::Scraper.new.scrape_movies(url)
-    #should output: 
-      # puts "#{movie.title.upcase}"
-      # puts "  rating:" + " #{movie.rating}"
-      # puts "  length:" + " #{movie.length}"
-      # puts "  showtimes:" + " #{movie.showtimes}"
-      # for each movie showing at the theater
     display_movies
   end
 
   def display_movies
     puts "Here are the movies playing at #{@theater.name}:"
     LocalMovies::Movie.list
-    #should output: 
-      # puts "#{movie.title.upcase}"
-      # puts "  rating:" + " #{movie.rating}"
-      # puts "  length:" + " #{movie.length}"
-      # puts "  showtimes:" + " #{movie.showtimes}"
-      # for each movie showing at the theater
   end
 end
